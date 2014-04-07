@@ -24,6 +24,15 @@ describe User do
         u.save
         expect(u).not_to be_valid
       end
+
+      it "password and confirmation must match" do
+        u = User.create( email: "bob@example" )
+
+        u.password = "123"
+        u.password_confirmation = "1234"
+        u.save
+        expect(u).not_to be_valid
+      end
     end
   end
 end
