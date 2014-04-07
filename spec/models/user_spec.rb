@@ -35,4 +35,14 @@ describe User do
       end
     end
   end
+
+  describe "authentication" do
+    it "authenticates with a correct password" do
+      p = "123"
+      e = "bob@example.com"
+      u = User.create( email: e, password: p, password_confirmation: p)
+
+      expect(User.authenticate(e,p)).to eql(u)
+    end
+  end
 end
