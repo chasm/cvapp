@@ -5,4 +5,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true
   validates :password, confirmation: true
   validates :password_confirmation, presence: true, if: :password
+
+  def self.authenticate(email, password)
+  end
 end
